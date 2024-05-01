@@ -27,7 +27,7 @@ const GameGrid = () => {
             </GameCardContainer>
           ))}
         {games?.map((game) => (
-          <GameCardContainer>
+          <GameCardContainer >
             <GameCard key={game.id} game={game} />
           </GameCardContainer>
         ))}
