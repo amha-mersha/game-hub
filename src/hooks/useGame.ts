@@ -15,6 +15,6 @@ export interface Platforms{
   slug: string,
 }
 
-const useGame = (selectedGenre: Genres| null) => useData<Game>("/games", {params: {genres:  selectedGenre?.id}}, [selectedGenre?.id])
+const useGame = (selectedGenre: Genres| null, selectedPlatform: Platforms|null) => useData<Game>("/games", {params: {genres:  selectedGenre?.id, platforms: selectedPlatform?.id}}, [selectedGenre?.id, selectedPlatform?.id])
 
 export default useGame
