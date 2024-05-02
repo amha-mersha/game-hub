@@ -1,6 +1,6 @@
 import { HStack, Switch, Text, useColorMode } from "@chakra-ui/react";
-import darkModeLogo from "../assets/Asset 2.png";
-import lightModeLogo from "../assets/Asset 3.png"
+import darkModeLogo from "../assets/Asset-2.webp";
+import lightModeLogo from "../assets/Asset-3.webp"
 
 interface Props {
   onSelected: (colorMode: string) => void;

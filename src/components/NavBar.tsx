@@ -1,6 +1,6 @@
-import { Card, HStack, Heading, Image, Text } from "@chakra-ui/react";
+import { Card, HStack, Image, Text } from "@chakra-ui/react";
 import ColorModeSwitch from "./ColorModeSwitch";
-import darkModeLogo from "../assets/Asset 2.png";
+import darkModeLogo from "../assets/Asset-2.webp";
 import SearchBar from "./SearchBar";
 import { useState } from "react";
 
