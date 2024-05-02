@@ -1,15 +1,24 @@
 import { HStack, Switch, Text, useColorMode } from "@chakra-ui/react";
+import darkModeLogo from "../assets/Asset 2.png";
+import lightModeLogo from "../assets/Asset 3.png"
 
-const ColorModeSwitch = () => {
+interface Props {
+  onSelected: (colorMode: string) => void;
+}
+
+const ColorModeSwitch = ({ onSelected }: Props) => {
   const { toggleColorMode, colorMode } = useColorMode();
   return (
     <HStack>
       <Switch
         padding={"10px"}
         isChecked={colorMode === "dark"}
-        onChange={toggleColorMode}
+        onChange={() => {
+          toggleColorMode();
+          onSelected(colorMode === "dark"? darkModeLogo: lightModeLogo);
+        }}
       />
-      <Text whiteSpace="nowrap">DarkMode</Text>
+      <Text whiteSpace="nowrap">ColorMode</Text>
     </HStack>
   );
 };
