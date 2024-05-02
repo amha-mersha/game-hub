@@ -7,12 +7,13 @@ import { Genres } from "./hooks/useGener";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platforms } from "./hooks/useGame";
 import SortSelector from "./components/SortSelector";
+import GameHeading from "./components/GameHeading";
 
 export interface GameQuery {
   genre: Genres | null;
   platform: Platforms | null;
   sortOrder: string;
-  searchText: string
+  searchText: string;
 }
 
 const App = () => {
@@ -29,7 +30,9 @@ const App = () => {
       }}
     >
       <GridItem area="nav">
-        <NavBar onSearch={(searchText) => setGameQuery({...gameQuery, searchText})}/>
+        <NavBar
+          onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })}
+        />
       </GridItem>
       <Show above="lg">
         <GridItem area="aside" paddingX={5}>
@@ -40,17 +43,25 @@ const App = () => {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <Flex paddingLeft={2} marginBottom={2}>
-          <Box paddingRight={3}>
-          <PlatformSelector
-            selectedPlatform={gameQuery.platform}
-            onSelectePlatform={(platform) =>
-              setGameQuery({ ...gameQuery, platform })
-            }
-          />
-          </Box>
-          <SortSelector selectedOrder={gameQuery.sortOrder} onSelectSortOrder={(sortOrder) => setGameQuery({...gameQuery,sortOrder})}/>
-        </Flex>
+        <Box paddingLeft={2}>
+          <GameHeading gameQuery={gameQuery} />
+          <Flex marginBottom={2}>
+            <Box paddingRight={3}>
+              <PlatformSelector
+                selectedPlatform={gameQuery.platform}
+                onSelectePlatform={(platform) =>
+                  setGameQuery({ ...gameQuery, platform })
+                }
+              />
+            </Box>
+            <SortSelector
+              selectedOrder={gameQuery.sortOrder}
+              onSelectSortOrder={(sortOrder) =>
+                setGameQuery({ ...gameQuery, sortOrder })
+              }
+            />
+          </Flex>
+        </Box>
         <GameGrid gameQuery={gameQuery} />
       </GridItem>
     </Grid>
